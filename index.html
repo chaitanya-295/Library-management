@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-book-open-reader logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Library</h2>
+                    <span>Management System</span>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="nav-link active" data-page="dashboard"><i class="fa-solid fa-tachograph-digital"></i> Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-page="books"><i class="fa-solid fa-book"></i> Books</a></li>
+                <li><a href="#" class="nav-link" data-page="students"><i class="fa-solid fa-user-graduate"></i> Students</a></li>
+                <li><a href="#" class="nav-link" data-page="staff"><i class="fa-solid fa-users"></i> Staff</a></li>
+                <li><a href="#" class="nav-link" data-page="issue-return"><i class="fa-solid fa-right-left"></i> Issue/Return</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>Need Help?</p>
+                <span>Contact support for assistance</span>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section id="dashboard" class="page active">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome to the Library Management System</p>
+                </div>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Total Books</h4>
+                            <h2 id="total-books-stat">0</h2>
+                            <p class="stat-growth green"><i class="fa-solid fa-arrow-up"></i></p>
+                        </div>
+                        <i class="fa-solid fa-book stat-icon"></i>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Active Students</h4>
+                            <h2 id="total-students-stat">0</h2>
+                            <p class="stat-growth green"><i class="fa-solid fa-arrow-up"></i></p>
+                        </div>
+                        <i class="fa-solid fa-users stat-icon"></i>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Staff Members</h4>
+                            <h2 id="total-staff-stat">0</h2>
+                            <p class="stat-growth green"><i class="fa-solid fa-arrow-up"></i></p>
+                        </div>
+                        <i class="fa-solid fa-user-tie stat-icon"></i>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h4>Overdue Books</h4>
+                            <h2 id="overdue-books-stat">0</h2>
+                            <p class="stat-growth red"><i class="fa-solid fa-arrow-down"></i></p>
+                        </div>
+                        <i class="fa-solid fa-triangle-exclamation stat-icon red"></i>
+                    </div>
+                </div>
+                <div class="recent-activity card">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Activity</h3>
+                    <ul id="recent-activity-list">
+                        </ul>
+                </div>
+            </section>
+
+            <section id="books" class="page">
+                <div class="page-header with-button">
+                    <div>
+                        <h1>Books Management</h1>
+                        <p>Manage your library's book collection</p>
+                    </div>
+                    <button id="add-book-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Book</button>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="book-search" placeholder="Search books by title, author, or category...">
+                </div>
+                <div id="book-list" class="content-list">
+                    </div>
+            </section>
+
+            <section id="students" class="page">
+                <div class="page-header with-button">
+                    <div>
+                        <h1>Students Management</h1>
+                        <p>Manage registered students</p>
+                    </div>
+                    <button id="add-student-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Student</button>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="student-search" placeholder="Search students by name, email, or department...">
+                </div>
+                <div id="student-list" class="content-list">
+                    </div>
+            </section>
+
+            <section id="staff" class="page">
+                <div class="page-header with-button">
+                    <div>
+                        <h1>Staff Management</h1>
+                        <p>Manage library staff members</p>
+                    </div>
+                    <button id="add-staff-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Staff</button>
+                </div>
+                 <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="staff-search" placeholder="Search staff by name or role...">
+                </div>
+                <div id="staff-grid" class="grid-content">
+                     </div>
+            </section>
+
+            <section id="issue-return" class="page">
+                <div class="page-header">
+                    <h1>Issue & Return Books</h1>
+                    <p>Manage book transactions</p>
+                </div>
+                <div class="form-container card">
+                    <div class="form-tabs">
+                        <button class="tab-link active" data-tab="issue">Issue Book</button>
+                        <button class="tab-link" data-tab="return">Return Book</button>
+                    </div>
+                    
+                    <form id="issue-form" class="form-content active">
+                        <h3>Issue a New Book</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="issue-student-id">Student ID</label>
+                                <input type="text" id="issue-student-id" placeholder="e.g., S001" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="issue-book-id">Book ID</label>
+                                <input type="text" id="issue-book-id" placeholder="e.g., B001" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="issue-date">Issue Date</label>
+                                <input type="date" id="issue-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="due-date">Due Date</label>
+                                <input type="date" id="due-date" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">Issue Book</button>
+                    </form>
+                    
+                    <form id="return-form" class="form-content">
+                        <h3>Return a Book</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="return-book-id">Book ID or Transaction ID</label>
+                                <input type="text" id="return-book-id" placeholder="Enter Book or Transaction ID" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="return-date">Return Date</label>
+                                <input type="date" id="return-date" required>
+                            </div>
+                        </div>
+                         <div id="fine-details" class="fine-info">
+                            </div>
+                        <button type="submit" class="btn btn-primary form-submit-btn">Return Book</button>
+                    </form>
+                </div>
+            </section>
+
+            
+        </main>
+    </div>
+
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Modal Title</h2>
+                <button id="modal-close-btn" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="modal-form">
+                    </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
